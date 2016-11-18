@@ -8,7 +8,10 @@ namespace VisualStudio15Launcher
         [STAThread]
         private static void Main()
         {
-            var launcher = new Launcher(new VisualStudio15RegistryProvider(), new VisualStudio15Theme());
+            var registryKeys = new VisualStudio15RegistryKeyProvider();
+            var process = new WindowsProcess(registryKeys);
+            var theme = new VisualStudio15Theme();
+            var launcher = new Launcher(registryKeys, theme, process);
             launcher.Run();
         }
     }

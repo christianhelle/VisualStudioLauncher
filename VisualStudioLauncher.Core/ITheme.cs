@@ -5,5 +5,6 @@ namespace VisualStudioLauncher.Core
         string Blue { get; }
         string Black { get; }
         string White { get; }
+        string GetTheme();
     }
 }

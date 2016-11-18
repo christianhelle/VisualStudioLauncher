@@ -1,6 +1,6 @@
 ﻿namespace VisualStudioLauncher.Core
 {
-    public interface IRegistryProvider
+    public interface IRegistryKeyProvider
     {
         string VisualStudioUserSettings { get; }
         string InstallationPath { get; }

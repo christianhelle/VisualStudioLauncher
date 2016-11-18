@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio15Launcher", "V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudioLauncher.Core", "VisualStudioLauncher.Core\VisualStudioLauncher.Core.csproj", "{5DE2684C-CBAF-4A4F-8BC9-D10AD0F8CB31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudioLauncher.Core.Tests", "VisualStudioLauncher.Core.Tests\VisualStudioLauncher.Core.Tests.csproj", "{6C2996E1-1E39-4CE3-BD50-3F4DC464C8B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5DE2684C-CBAF-4A4F-8BC9-D10AD0F8CB31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DE2684C-CBAF-4A4F-8BC9-D10AD0F8CB31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DE2684C-CBAF-4A4F-8BC9-D10AD0F8CB31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C2996E1-1E39-4CE3-BD50-3F4DC464C8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C2996E1-1E39-4CE3-BD50-3F4DC464C8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C2996E1-1E39-4CE3-BD50-3F4DC464C8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C2996E1-1E39-4CE3-BD50-3F4DC464C8B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

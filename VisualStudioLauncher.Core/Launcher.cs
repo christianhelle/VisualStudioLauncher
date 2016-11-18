@@ -7,29 +7,23 @@ namespace VisualStudioLauncher.Core
 {
     public class Launcher
     {
-        public IRegistryProvider RegistryProvider { get; }
+        public IRegistryKeyProvider RegistryKeys { get; }
         public ITheme Theme { get; }
+        public IProcess Process { get; }
 
-        public Launcher(IRegistryProvider registryProvider, ITheme theme)
+        public Launcher(IRegistryKeyProvider registryKeys, ITheme theme, IProcess process)
         {
-            RegistryProvider = registryProvider;
+            RegistryKeys = registryKeys;
             Theme = theme;
+            Process = process;
         }
 
         public void Run()
         {
-            var regKey = RegistryProvider.VisualStudioUserSettings + @"\ApplicationPrivateSettings\Microsoft\VisualStudio";
+            var regKey = RegistryKeys.VisualStudioUserSettings + @"\ApplicationPrivateSettings\Microsoft\VisualStudio";
             var subKey = Registry.CurrentUser.OpenSubKey(regKey, true);
-            subKey?.SetValue("ColorTheme", GetTheme(), RegistryValueKind.String);
-            Process.Start(Path.Combine(RegistryProvider.InstallationPath, "devenv.exe"));
-        }
-
-        private string GetTheme()
-        {
-            var time = DateTime.Now.TimeOfDay;
-            if (time.TotalHours >= 18 || time.TotalHours <= 7)
-                return Theme.Black;
-            return Theme.Blue;
+            subKey?.SetValue("ColorTheme", Theme.GetTheme(), RegistryValueKind.String);
+            Process.Start();
         }
     }
 }

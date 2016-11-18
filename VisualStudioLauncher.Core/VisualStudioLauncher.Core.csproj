@@ -40,12 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IRegistryProvider.cs" />
+    <Compile Include="IRegistryKeyProvider.cs" />
     <Compile Include="ITheme.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VisualStudio15Theme.cs" />
-    <Compile Include="VisualStudio15RegistryProvider.cs" />
+    <Compile Include="VisualStudio15RegistryKeyProvider.cs" />
+    <Compile Include="IProcess.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
