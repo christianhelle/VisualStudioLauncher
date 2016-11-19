@@ -1,28 +1,33 @@
-﻿namespace VisualStudioLauncher.Core
+﻿using System;
+
+namespace VisualStudioLauncher.Core
 {
     public class Launcher : ILauncher
     {
         public Launcher(IRegistryKeyProvider registryKeys,
                         IRegistryEditor registryEditor,
-                        ITheme theme,
+                        IThemeSelector themeSelector,
+                        IColorThemeSettings colorThemeSettings,
                         IProcess process)
         {
             RegistryKeys = registryKeys;
-            Theme = theme;
+            ThemeSelector = themeSelector;
+            ColorThemeSettings = colorThemeSettings;
             Process = process;
             RegistryEditor = registryEditor;
         }
 
         public IRegistryKeyProvider RegistryKeys { get; }
-        public ITheme Theme { get; }
+        public IThemeSelector ThemeSelector { get; }
+        public IColorThemeSettings ColorThemeSettings { get; set; }
         public IProcess Process { get; }
         public IRegistryEditor RegistryEditor { get; }
 
-        public void Run()
+        public void Run(TimeSpan timeOfDay)
         {
             RegistryEditor.Update(RegistryKeys.VisualStudioUserSettings,
                                   RegistryKeys.ThemeColorSettings,
-                                  Theme.GetTheme());
+                                  ColorThemeSettings.GetValue(ThemeSelector.GetTheme(timeOfDay)));
             Process.Start();
         }
     }

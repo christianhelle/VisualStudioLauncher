@@ -1,7 +1,9 @@
-﻿namespace VisualStudioLauncher.Core
+﻿using System;
+
+namespace VisualStudioLauncher.Core
 {
     public interface ILauncher
     {
-        void Run();
+        void Run(TimeSpan timeOfDay);
     }
 }

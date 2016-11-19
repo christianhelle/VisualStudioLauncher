@@ -10,7 +10,8 @@ namespace VisualStudioLauncher.Core.Tests
     {
         private Launcher sut;
         private Mock<IRegistryKeyProvider> mockRegistryProvider;
-        private Mock<ITheme> mockTheme;
+        private Mock<IThemeSelector> mockThemeSelector;
+        private Mock<IColorThemeSettings> mockThemeSettings;
         private Mock<IProcess> mockProcess;
         private Mock<IRegistryEditor> mockRegEditor;
 
@@ -18,13 +19,15 @@ namespace VisualStudioLauncher.Core.Tests
         public void Setup()
         {
             mockRegistryProvider = new Mock<IRegistryKeyProvider>();
-            mockTheme = new Mock<ITheme>();
+            mockThemeSelector = new Mock<IThemeSelector>();
+            mockThemeSettings = new Mock<IColorThemeSettings>();
             mockProcess = new Mock<IProcess>();
             mockRegEditor = new Mock<IRegistryEditor>();
 
             sut = new Launcher(mockRegistryProvider.Object,
                                mockRegEditor.Object,
-                               mockTheme.Object,
+                               mockThemeSelector.Object,
+                               mockThemeSettings.Object,
                                mockProcess.Object);
         }
 
@@ -41,10 +44,16 @@ namespace VisualStudioLauncher.Core.Tests
         public void RegistryEditorSetFromConstructor() => Assert.AreEqual(sut.RegistryEditor, mockRegEditor.Object);
 
         [TestMethod]
-        public void ThemeIsNotNull() => Assert.IsNotNull(sut.Theme);
+        public void ThemeSelectorIsNotNull() => Assert.IsNotNull(sut.ThemeSelector);
 
         [TestMethod]
-        public void ThemeSetFromConstructor() => Assert.AreEqual(sut.Theme, mockTheme.Object);
+        public void ThemeSelectorSetFromConstructor() => Assert.AreEqual(sut.ThemeSelector, mockThemeSelector.Object);
+
+        [TestMethod]
+        public void ColorThemeSettingsIsNotNull() => Assert.IsNotNull(sut.ColorThemeSettings);
+
+        [TestMethod]
+        public void ColorThemeSettingsSetFromConstructor() => Assert.AreEqual(sut.ColorThemeSettings, mockThemeSettings.Object);
 
         [TestMethod]
         public void ProcessIsNotNull() => Assert.IsNotNull(sut.Process);

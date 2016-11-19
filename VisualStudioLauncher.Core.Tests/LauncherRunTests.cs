@@ -9,7 +9,8 @@ namespace VisualStudioLauncher.Core.Tests
     {
         private Launcher sut;
         private Mock<IRegistryKeyProvider> mockRegistryProvider;
-        private Mock<ITheme> mockTheme;
+        private Mock<IThemeSelector> mockTheme;
+        private Mock<IColorThemeSettings> mockThemeSettings;
         private Mock<IProcess> mockProcess;
         private Mock<IRegistryEditor> mockRegEditor;
 
@@ -26,8 +27,11 @@ namespace VisualStudioLauncher.Core.Tests
             mockRegistryProvider.SetupGet(p => p.InstallationPath).Returns(path);
             mockRegistryProvider.SetupGet(p => p.ThemeColorSettings).Returns(name);
 
-            mockTheme = new Mock<ITheme>();
-            mockTheme.Setup(p => p.GetTheme()).Returns(value);
+            mockTheme = new Mock<IThemeSelector>();
+            mockTheme.Setup(p => p.GetTheme(TimeSpan.FromHours(18))).Returns(Theme.Black);
+
+            mockThemeSettings = new Mock<IColorThemeSettings>();
+            mockThemeSettings.Setup(p => p.GetValue(Theme.Black)).Returns(value);
 
             mockProcess = new Mock<IProcess>();
             mockRegEditor = new Mock<IRegistryEditor>();
@@ -35,8 +39,9 @@ namespace VisualStudioLauncher.Core.Tests
             sut = new Launcher(mockRegistryProvider.Object,
                                mockRegEditor.Object,
                                mockTheme.Object,
+                               mockThemeSettings.Object,
                                mockProcess.Object);
-            sut.Run();
+            sut.Run(TimeSpan.FromHours(18));
         }
 
         [TestMethod]

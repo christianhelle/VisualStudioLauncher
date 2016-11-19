@@ -8,12 +8,12 @@ namespace VisualStudio15Launcher
         [STAThread]
         private static void Main()
         {
-            var registryKeys = new VisualStudio15RegistryKeyProvider();
-            var registryEditor = new RegistryEditor();
-            var process = new WindowsProcess(registryKeys);
-            var theme = new VisualStudio15Theme();
-            var launcher = new Launcher(registryKeys, registryEditor, theme, process);
-            launcher.Run();
+            var launcher = new Launcher(new VisualStudio2015RegistryKeyProvider(),
+                                        new RegistryEditor(),
+                                        new ThemeSelector(),
+                                        new ColorThemeSettings(),
+                                        new VisualStudioProcess(new VisualStudio2015RegistryKeyProvider()));
+            launcher.Run(DateTime.Now.TimeOfDay);
         }
     }
 }

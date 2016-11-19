@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio15Launcher", "VisualStudio15Launcher\VisualStudio15Launcher.csproj", "{A70216CE-3560-4D6D-BD56-47A1ED5561E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio2015Launcher", "VisualStudio15Launcher\VisualStudio2015Launcher.csproj", "{A70216CE-3560-4D6D-BD56-47A1ED5561E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudioLauncher.Core", "VisualStudioLauncher.Core\VisualStudioLauncher.Core.csproj", "{5DE2684C-CBAF-4A4F-8BC9-D10AD0F8CB31}"
 EndProject

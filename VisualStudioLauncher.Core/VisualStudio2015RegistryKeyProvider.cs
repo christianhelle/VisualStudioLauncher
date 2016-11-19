@@ -3,7 +3,7 @@ using Microsoft.Win32;
 
 namespace VisualStudioLauncher.Core
 {
-    public class VisualStudio15RegistryKeyProvider : IRegistryKeyProvider
+    public class VisualStudio2015RegistryKeyProvider : IRegistryKeyProvider
     {
         public string VisualStudioUserSettings { get; } 
             = @"SOFTWARE\Microsoft\VisualStudio\14.0\ApplicationPrivateSettings\Microsoft\VisualStudio";

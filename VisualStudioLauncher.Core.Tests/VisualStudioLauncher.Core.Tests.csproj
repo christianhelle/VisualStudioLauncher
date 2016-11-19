@@ -58,6 +58,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ColorThemeSettingsTests.cs" />
+    <Compile Include="ThemeSelectorTests.cs" />
     <Compile Include="LauncherRunTests.cs" />
     <Compile Include="LauncherConstructorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
