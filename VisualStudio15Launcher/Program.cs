@@ -1,18 +1,19 @@
 ﻿using System;
 using VisualStudioLauncher.Core;
 
-namespace VisualStudio15Launcher
+namespace VisualStudio2015Launcher
 {
     internal static class Program
     {
         [STAThread]
         private static void Main()
         {
-            var launcher = new Launcher(new VisualStudio2015RegistryKeyProvider(),
+            var registryKeyProvider = new VisualStudio2015RegistryKeyProvider();
+            var launcher = new Launcher(registryKeyProvider,
                                         new RegistryEditor(),
                                         new ThemeSelector(),
                                         new ColorThemeSettings(),
-                                        new VisualStudioProcess(new VisualStudio2015RegistryKeyProvider()));
+                                        new VisualStudioProcess(registryKeyProvider));
             launcher.Run(DateTime.Now.TimeOfDay);
         }
     }
