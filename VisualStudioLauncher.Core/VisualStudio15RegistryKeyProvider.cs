@@ -5,7 +5,10 @@ namespace VisualStudioLauncher.Core
 {
     public class VisualStudio15RegistryKeyProvider : IRegistryKeyProvider
     {
-        public string VisualStudioUserSettings { get; } = @"SOFTWARE\Microsoft\VisualStudio\14.0";
+        public string VisualStudioUserSettings { get; } 
+            = @"SOFTWARE\Microsoft\VisualStudio\14.0\ApplicationPrivateSettings\Microsoft\VisualStudio";
+
+        public string ThemeColorSettings { get; } = "ColorTheme";
 
         public string InstallationPath
         {
