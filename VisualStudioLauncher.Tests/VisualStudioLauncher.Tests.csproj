@@ -65,9 +65,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VisualStudioLauncher.Core\VisualStudioLauncher.Core.csproj">
+    <ProjectReference Include="..\VisualStudioLauncher\VisualStudioLauncher.csproj">
       <Project>{5DE2684C-CBAF-4A4F-8BC9-D10AD0F8CB31}</Project>
-      <Name>VisualStudioLauncher.Core</Name>
+      <Name>VisualStudioLauncher</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
