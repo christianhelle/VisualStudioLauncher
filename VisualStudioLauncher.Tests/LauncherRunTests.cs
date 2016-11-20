@@ -1,8 +1,11 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using VisualStudioLauncher.Application;
+using VisualStudioLauncher.Registry;
+using VisualStudioLauncher.Themes;
 
-namespace VisualStudioLauncher.Core.Tests
+namespace VisualStudioLauncher.Tests
 {
     [TestClass]
     public class LauncherRunTests

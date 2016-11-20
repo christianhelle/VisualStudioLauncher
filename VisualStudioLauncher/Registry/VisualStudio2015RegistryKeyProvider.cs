@@ -1,7 +1,6 @@
 ﻿using System;
-using Microsoft.Win32;
 
-namespace VisualStudioLauncher.Core
+namespace VisualStudioLauncher.Registry
 {
     public class VisualStudio2015RegistryKeyProvider : IRegistryKeyProvider
     {
@@ -17,14 +16,14 @@ namespace VisualStudioLauncher.Core
                 string installationPath;
                 if (Environment.Is64BitOperatingSystem)
                 {
-                    installationPath = (string)Registry.GetValue(
+                    installationPath = (string)Microsoft.Win32.Registry.GetValue(
                         @"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\14.0\",
                         "InstallDir",
                         null);
                 }
                 else
                 {
-                    installationPath = (string)Registry.GetValue(
+                    installationPath = (string)Microsoft.Win32.Registry.GetValue(
                         @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\14.0\",
                         "InstallDir",
                         null);

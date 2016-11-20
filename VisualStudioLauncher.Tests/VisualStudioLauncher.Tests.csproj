@@ -6,8 +6,8 @@
     <ProjectGuid>{6C2996E1-1E39-4CE3-BD50-3F4DC464C8B1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VisualStudioLauncher.Core.Tests</RootNamespace>
-    <AssemblyName>VisualStudioLauncher.Core.Tests</AssemblyName>
+    <RootNamespace>VisualStudioLauncher.Tests</RootNamespace>
+    <AssemblyName>VisualStudioLauncher.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

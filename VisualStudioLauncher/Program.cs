@@ -1,7 +1,9 @@
 ﻿using System;
-using VisualStudioLauncher.Core;
+using VisualStudioLauncher.Application;
+using VisualStudioLauncher.Registry;
+using VisualStudioLauncher.Themes;
 
-namespace VisualStudio2015Launcher
+namespace VisualStudioLauncher
 {
     internal static class Program
     {

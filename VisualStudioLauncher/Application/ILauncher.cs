@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VisualStudioLauncher.Core
+namespace VisualStudioLauncher.Application
 {
     public interface ILauncher
     {

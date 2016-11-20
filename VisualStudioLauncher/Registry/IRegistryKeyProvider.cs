@@ -1,4 +1,4 @@
-﻿namespace VisualStudioLauncher.Core
+﻿namespace VisualStudioLauncher.Registry
 {
     public interface IRegistryKeyProvider
     {

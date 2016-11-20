@@ -1,4 +1,4 @@
-namespace VisualStudioLauncher.Core
+namespace VisualStudioLauncher.Themes
 {
     public enum Theme
     {

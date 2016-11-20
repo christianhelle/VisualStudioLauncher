@@ -1,6 +1,8 @@
 ﻿using System;
+using VisualStudioLauncher.Registry;
+using VisualStudioLauncher.Themes;
 
-namespace VisualStudioLauncher.Core
+namespace VisualStudioLauncher.Application
 {
     public class Launcher : ILauncher
     {

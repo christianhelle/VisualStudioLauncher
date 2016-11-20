@@ -1,7 +1,8 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using VisualStudioLauncher.Registry;
 
-namespace VisualStudioLauncher.Core
+namespace VisualStudioLauncher.Application
 {
     public class VisualStudioProcess : IProcess
     {

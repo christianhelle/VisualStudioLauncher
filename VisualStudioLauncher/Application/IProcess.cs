@@ -1,4 +1,6 @@
-﻿namespace VisualStudioLauncher.Core
+﻿using VisualStudioLauncher.Registry;
+
+namespace VisualStudioLauncher.Application
 {
     public interface IProcess
     {

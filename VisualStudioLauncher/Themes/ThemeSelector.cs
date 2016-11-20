@@ -1,6 +1,6 @@
 using System;
 
-namespace VisualStudioLauncher.Core
+namespace VisualStudioLauncher.Themes
 {
     public class ThemeSelector : IThemeSelector
     {
