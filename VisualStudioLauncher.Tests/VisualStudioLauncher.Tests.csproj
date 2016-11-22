@@ -63,6 +63,7 @@
     <Compile Include="LauncherRunTests.cs" />
     <Compile Include="LauncherConstructorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VisualStudioSelectorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VisualStudioLauncher\VisualStudioLauncher.csproj">
