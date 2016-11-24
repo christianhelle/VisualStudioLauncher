@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VisualStudioLauncher.Core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Visual Studio Launcher")]
+[assembly: AssemblyDescription("Visual Studio Launcher")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("VisualStudioLauncher.Core")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyProduct("Visual Studio Launcher")]
+[assembly: AssemblyCopyright("Copyright © Christian Resma Helle 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
