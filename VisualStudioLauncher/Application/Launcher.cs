@@ -25,12 +25,12 @@ namespace VisualStudioLauncher.Application
         public IProcess Process { get; }
         public IRegistryEditor RegistryEditor { get; }
 
-        public void Run(TimeSpan timeOfDay)
+        public void Run(string file = null, TimeSpan? timeOfDay = null)
         {
             RegistryEditor.Update(RegistryKeys.VisualStudioUserSettings,
                                   RegistryKeys.ThemeColorSettings,
-                                  ColorThemeSettings.GetValue(ThemeSelector.GetTheme(timeOfDay)));
-            Process.Start();
+                                  ColorThemeSettings.GetValue(ThemeSelector.GetTheme(timeOfDay.GetValueOrDefault(DateTime.Now.TimeOfDay))));
+            Process.Start(file);
         }
     }
 }

@@ -4,6 +4,6 @@ namespace VisualStudioLauncher.Application
 {
     public interface ILauncher
     {
-        void Run(TimeSpan timeOfDay);
+        void Run(string file = null, TimeSpan? timeOfDay = null);
     }
 }

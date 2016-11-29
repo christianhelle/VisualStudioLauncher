@@ -38,7 +38,7 @@ namespace VisualStudioLauncher.Tests
                                         mockTheme.Object,
                                         mockThemeSettings.Object,
                                         mockProcess.Object);
-            launcher.Run(TimeSpan.FromHours(18));
+            launcher.Run(null, TimeSpan.FromHours(18));
         }
 
         [Fact]

@@ -13,10 +13,10 @@ namespace VisualStudioLauncher.Application
             RegistryKeyProvider = registryKeyProvider;
         }
 
-        public void Start(string solutionFile = null)
+        public void Start(string file = null)
         {
             var fileName = Path.Combine(RegistryKeyProvider.InstallationPath, "devenv.exe");
-            Process.Start(fileName, solutionFile);
+            Process.Start(fileName, file);
         }
     }
 }

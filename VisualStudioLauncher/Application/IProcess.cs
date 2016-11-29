@@ -5,6 +5,6 @@ namespace VisualStudioLauncher.Application
     public interface IProcess
     {
         IRegistryKeyProvider RegistryKeyProvider { get; }
-        void Start(string solutionFile = null);
+        void Start(string file = null);
     }
 }
