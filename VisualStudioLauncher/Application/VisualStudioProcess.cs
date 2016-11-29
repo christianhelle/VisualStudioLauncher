@@ -16,6 +16,8 @@ namespace VisualStudioLauncher.Application
         public void Start(string file = null)
         {
             var fileName = Path.Combine(RegistryKeyProvider.InstallationPath, "devenv.exe");
+            if (!string.IsNullOrWhiteSpace(file))
+                file = $"\"{file}\"";
             Process.Start(fileName, file);
         }
     }
