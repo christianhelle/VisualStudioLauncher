@@ -13,6 +13,7 @@ namespace VisualStudioLauncher.Tests
         private readonly Mock<IColorThemeSettings> mockThemeSettings = new Mock<IColorThemeSettings>();
         private readonly Mock<IProcess> mockProcess = new Mock<IProcess>();
         private readonly Mock<IRegistryEditor> mockRegEditor = new Mock<IRegistryEditor>();
+        private readonly Mock<IFilePathResolver> mockFilePathResolver = new Mock<IFilePathResolver>();
         private readonly Launcher sut;
 
         public LauncherConstructorTests()
@@ -21,7 +22,8 @@ namespace VisualStudioLauncher.Tests
                                mockRegEditor.Object,
                                mockThemeSelector.Object,
                                mockThemeSettings.Object,
-                               mockProcess.Object);
+                               mockProcess.Object,
+                               mockFilePathResolver.Object);
         }
 
         [Fact]
@@ -53,5 +55,8 @@ namespace VisualStudioLauncher.Tests
 
         [Fact]
         public void ProcessSetFromConstructor() => Assert.Equal(sut.Process, mockProcess.Object);
+
+        [Fact]
+        public void FilePathResolverSetFromConstructor() => Assert.Equal(sut.FilePathResolver, mockFilePathResolver.Object);
     }
 }

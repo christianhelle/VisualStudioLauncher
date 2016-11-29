@@ -11,11 +11,14 @@ namespace VisualStudioLauncher.Tests
     {
         private readonly Mock<IProcess> mockProcess;
         private readonly Mock<IRegistryEditor> mockRegEditor;
+        private readonly Mock<IFilePathResolver> mockFilePathResolver;
 
         private readonly string regKey = Guid.NewGuid().ToString();
         private readonly string path = Guid.NewGuid().ToString();
         private readonly string name = Guid.NewGuid().ToString();
         private readonly string value = Guid.NewGuid().ToString();
+
+        private readonly string file = Guid.NewGuid().ToString();
 
         public LauncherRunTests()
         {
@@ -32,17 +35,22 @@ namespace VisualStudioLauncher.Tests
 
             mockProcess = new Mock<IProcess>();
             mockRegEditor = new Mock<IRegistryEditor>();
+            mockFilePathResolver = new Mock<IFilePathResolver>();
 
             var launcher = new Launcher(mockRegistryProvider.Object,
                                         mockRegEditor.Object,
                                         mockTheme.Object,
                                         mockThemeSettings.Object,
-                                        mockProcess.Object);
-            launcher.Run(null, TimeSpan.FromHours(18));
+                                        mockProcess.Object,
+                                        mockFilePathResolver.Object);
+            launcher.Run(file, TimeSpan.FromHours(18));
         }
 
         [Fact]
         public void RegistryEditorIsUpdated() => mockRegEditor.Verify(reg => reg.Update(regKey, name, value), Times.Once);
+
+        [Fact]
+        public void FilePathIsResolved() => mockFilePathResolver.Verify(c => c.Resolve(file));
 
         [Fact]
         public void StartOnProcessCalledOnce() => mockProcess.Verify(process => process.Start(null), Times.Once);

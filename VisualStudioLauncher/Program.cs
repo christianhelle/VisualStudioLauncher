@@ -16,7 +16,8 @@ namespace VisualStudioLauncher
                                         new RegistryEditor(),
                                         new ThemeSelector(),
                                         new ColorThemeSettings(),
-                                        new VisualStudioProcess(registryKeyProvider));
+                                        new VisualStudioProcess(registryKeyProvider),
+                                        new FilePathResolver(new UserNotification()));
             launcher.Run(args.FirstOrDefault());
         }
     }

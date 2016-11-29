@@ -10,12 +10,14 @@ namespace VisualStudioLauncher.Application
                         IRegistryEditor registryEditor,
                         IThemeSelector themeSelector,
                         IColorThemeSettings colorThemeSettings,
-                        IProcess process)
+                        IProcess process,
+                        IFilePathResolver filePathResolver)
         {
             RegistryKeys = registryKeys;
             ThemeSelector = themeSelector;
             ColorThemeSettings = colorThemeSettings;
             Process = process;
+            FilePathResolver = filePathResolver;
             RegistryEditor = registryEditor;
         }
 
@@ -23,6 +25,7 @@ namespace VisualStudioLauncher.Application
         public IThemeSelector ThemeSelector { get; }
         public IColorThemeSettings ColorThemeSettings { get; set; }
         public IProcess Process { get; }
+        public IFilePathResolver FilePathResolver { get; set; }
         public IRegistryEditor RegistryEditor { get; }
 
         public void Run(string file = null, TimeSpan? timeOfDay = null)
@@ -30,7 +33,7 @@ namespace VisualStudioLauncher.Application
             RegistryEditor.Update(RegistryKeys.VisualStudioUserSettings,
                                   RegistryKeys.ThemeColorSettings,
                                   ColorThemeSettings.GetValue(ThemeSelector.GetTheme(timeOfDay.GetValueOrDefault(DateTime.Now.TimeOfDay))));
-            Process.Start(file);
+            Process.Start(FilePathResolver.Resolve(file));
         }
     }
 }
