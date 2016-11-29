@@ -1,30 +1,22 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
+﻿using Moq;
 using VisualStudioLauncher.Application;
 using VisualStudioLauncher.Registry;
 using VisualStudioLauncher.Themes;
+using Xunit;
 
 namespace VisualStudioLauncher.Tests
 {
-    [TestClass]
     public class LauncherConstructorTests
     {
-        private Launcher sut;
-        private Mock<IRegistryKeyProvider> mockRegistryProvider;
-        private Mock<IThemeSelector> mockThemeSelector;
-        private Mock<IColorThemeSettings> mockThemeSettings;
-        private Mock<IProcess> mockProcess;
-        private Mock<IRegistryEditor> mockRegEditor;
+        private readonly Mock<IRegistryKeyProvider> mockRegistryProvider = new Mock<IRegistryKeyProvider>();
+        private readonly Mock<IThemeSelector> mockThemeSelector = new Mock<IThemeSelector>();
+        private readonly Mock<IColorThemeSettings> mockThemeSettings = new Mock<IColorThemeSettings>();
+        private readonly Mock<IProcess> mockProcess = new Mock<IProcess>();
+        private readonly Mock<IRegistryEditor> mockRegEditor = new Mock<IRegistryEditor>();
+        private readonly Launcher sut;
 
-        [TestInitialize]
-        public void Setup()
+        public LauncherConstructorTests()
         {
-            mockRegistryProvider = new Mock<IRegistryKeyProvider>();
-            mockThemeSelector = new Mock<IThemeSelector>();
-            mockThemeSettings = new Mock<IColorThemeSettings>();
-            mockProcess = new Mock<IProcess>();
-            mockRegEditor = new Mock<IRegistryEditor>();
-
             sut = new Launcher(mockRegistryProvider.Object,
                                mockRegEditor.Object,
                                mockThemeSelector.Object,
@@ -32,34 +24,34 @@ namespace VisualStudioLauncher.Tests
                                mockProcess.Object);
         }
 
-        [TestMethod]
-        public void RegistryProviderIsNotNull() => Assert.IsNotNull(sut.RegistryKeys);
+        [Fact]
+        public void RegistryProviderIsNotNull() => Assert.NotNull(sut.RegistryKeys);
 
-        [TestMethod]
-        public void RegistryProviderSetFromConstructor() => Assert.AreEqual(sut.RegistryKeys, mockRegistryProvider.Object);
+        [Fact]
+        public void RegistryProviderSetFromConstructor() => Assert.Equal(sut.RegistryKeys, mockRegistryProvider.Object);
 
-        [TestMethod]
-        public void RegistryEditorIsNotNull() => Assert.IsNotNull(sut.RegistryEditor);
+        [Fact]
+        public void RegistryEditorIsNotNull() => Assert.NotNull(sut.RegistryEditor);
 
-        [TestMethod]
-        public void RegistryEditorSetFromConstructor() => Assert.AreEqual(sut.RegistryEditor, mockRegEditor.Object);
+        [Fact]
+        public void RegistryEditorSetFromConstructor() => Assert.Equal(sut.RegistryEditor, mockRegEditor.Object);
 
-        [TestMethod]
-        public void ThemeSelectorIsNotNull() => Assert.IsNotNull(sut.ThemeSelector);
+        [Fact]
+        public void ThemeSelectorIsNotNull() => Assert.NotNull(sut.ThemeSelector);
 
-        [TestMethod]
-        public void ThemeSelectorSetFromConstructor() => Assert.AreEqual(sut.ThemeSelector, mockThemeSelector.Object);
+        [Fact]
+        public void ThemeSelectorSetFromConstructor() => Assert.Equal(sut.ThemeSelector, mockThemeSelector.Object);
 
-        [TestMethod]
-        public void ColorThemeSettingsIsNotNull() => Assert.IsNotNull(sut.ColorThemeSettings);
+        [Fact]
+        public void ColorThemeSettingsIsNotNull() => Assert.NotNull(sut.ColorThemeSettings);
 
-        [TestMethod]
-        public void ColorThemeSettingsSetFromConstructor() => Assert.AreEqual(sut.ColorThemeSettings, mockThemeSettings.Object);
+        [Fact]
+        public void ColorThemeSettingsSetFromConstructor() => Assert.Equal(sut.ColorThemeSettings, mockThemeSettings.Object);
 
-        [TestMethod]
-        public void ProcessIsNotNull() => Assert.IsNotNull(sut.Process);
+        [Fact]
+        public void ProcessIsNotNull() => Assert.NotNull(sut.Process);
 
-        [TestMethod]
-        public void ProcessSetFromConstructor() => Assert.AreEqual(sut.Process, mockProcess.Object);
+        [Fact]
+        public void ProcessSetFromConstructor() => Assert.Equal(sut.Process, mockProcess.Object);
     }
 }

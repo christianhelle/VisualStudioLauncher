@@ -1,25 +1,23 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VisualStudioLauncher.Themes;
+using Xunit;
 
 namespace VisualStudioLauncher.Tests
 {
-    [TestClass]
     public class ColorThemeSettingsTests
     {
         private readonly ColorThemeSettings sut = new ColorThemeSettings();
 
-        [TestMethod]
-        public void ColorThemeSettingsForBlackThemeNotNull() => Assert.IsFalse(string.IsNullOrWhiteSpace(sut.GetValue(Theme.Black)));
+        [Fact]
+        public void ColorThemeSettingsForBlackThemeNotNull() => Assert.False(string.IsNullOrWhiteSpace(sut.GetValue(Theme.Black)));
 
-        [TestMethod]
-        public void ColorThemeSettingsForBlueThemeNotNull() => Assert.IsFalse(string.IsNullOrWhiteSpace(sut.GetValue(Theme.Blue)));
+        [Fact]
+        public void ColorThemeSettingsForBlueThemeNotNull() => Assert.False(string.IsNullOrWhiteSpace(sut.GetValue(Theme.Blue)));
 
-        [TestMethod]
-        public void ColorThemeSettingsForWhiteThemeNotNull() => Assert.IsFalse(string.IsNullOrWhiteSpace(sut.GetValue(Theme.White)));
+        [Fact]
+        public void ColorThemeSettingsForWhiteThemeNotNull() => Assert.False(string.IsNullOrWhiteSpace(sut.GetValue(Theme.White)));
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ColorThemeSettingsForNoneThrowsException() => sut.GetValue(Theme.None);
+        [Fact]
+        public void ColorThemeSettingsForNoneThrowsException() => Assert.Throws<ArgumentOutOfRangeException>(() => sut.GetValue(Theme.None));
     }
 }
