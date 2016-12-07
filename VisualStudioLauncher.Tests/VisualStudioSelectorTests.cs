@@ -1,4 +1,7 @@
-﻿namespace VisualStudioLauncher.Tests
+﻿using System;
+using Xunit;
+
+namespace VisualStudioLauncher.Tests
 {
     public class VisualStudioSelectorTests
     {
@@ -32,5 +35,11 @@ HideSolutionNode = FALSE
     EndGlobalSection
 EndGlobal
 ";
+
+        [Fact]
+        public void CanParseSolutionFile()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

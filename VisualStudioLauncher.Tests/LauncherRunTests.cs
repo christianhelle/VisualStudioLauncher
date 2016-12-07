@@ -1,6 +1,7 @@
 using System;
 using Moq;
 using VisualStudioLauncher.Application;
+using VisualStudioLauncher.Platform;
 using VisualStudioLauncher.Registry;
 using VisualStudioLauncher.Themes;
 using Xunit;
@@ -36,6 +37,7 @@ namespace VisualStudioLauncher.Tests
             mockProcess = new Mock<IProcess>();
             mockRegEditor = new Mock<IRegistryEditor>();
             mockFilePathResolver = new Mock<IFilePathResolver>();
+            mockFilePathResolver.Setup(c => c.Resolve(file)).Returns(file);
 
             var launcher = new Launcher(mockRegistryProvider.Object,
                                         mockRegEditor.Object,
@@ -53,6 +55,6 @@ namespace VisualStudioLauncher.Tests
         public void FilePathIsResolved() => mockFilePathResolver.Verify(c => c.Resolve(file));
 
         [Fact]
-        public void StartOnProcessCalledOnce() => mockProcess.Verify(process => process.Start(null), Times.Once);
+        public void StartOnProcessCalledOnce() => mockProcess.Verify(process => process.Start(file), Times.Once);
     }
 }
