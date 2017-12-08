@@ -1,0 +1,4 @@
+language: csharp
+solution: VisualStudioLauncher.sln
+install:
+  - nuget restore VisualStudioLauncher.sln
